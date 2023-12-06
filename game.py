@@ -1,21 +1,29 @@
 import time
 
+
+# timing
 def introduction():
-    
-    #prompt user to write a name
-    print("Welcome, astronaut NAME! You are stationed on the research outpost Perseus, orbiting Nexus-9.")
+    # prompt user to write a name
+    Name_of_astronaut = str(input("What is your name Brave astronaut "))
+    print(
+        f"Welcome, astronaut {Name_of_astronaut}! You are stationed on the research outpost Perseus, orbiting Nexus-9."
+    )
     print("Your mission is to investigate anomalies and manifestations around Nexus-9.")
     print("Be cautious, as the planet seems to respond to thoughts and memories.")
     time.sleep(2)
     print("\nYou wake up in your quarters. It's eerily silent.")
 
+
 def explore_station():
     print("\nYou decide to explore the research outpost.")
-    print("As you walk down the corridor, you notice a flickering light in the control room.")
+    print(
+        "As you walk down the corridor, you notice a flickering light in the control room."
+    )
     time.sleep(2)
     print("\nWhat do you want to do?")
     print("1. Investigate the flickering light.")
     print("2. Go to the observation deck.")
+
 
 def investigate_light():
     print("\nYou cautiously approach the control room.")
@@ -25,6 +33,7 @@ def investigate_light():
     print("1. Approach the holographic projections.")
     print("2. Check the computer logs.")
 
+
 def confrontation():
     print("\nYou feel a sudden surge of memories flooding your mind.")
     print("Strange illusions begin to form around you.")
@@ -33,20 +42,23 @@ def confrontation():
     print("1. Try to confront the illusions.")
     print("2. Attempt to ground yourself and focus on reality.")
 
+
 def main_game():
     introduction()
 
     # 1 choice
-    explore_station_choice = input("\nDo you want to explore the station? (yes/no): ").lower()
+    explore_station_choice = input(
+        "\nDo you want to explore the station? (yes/no): "
+    ).lower()
     if explore_station_choice == "yes":
         explore_station()
         station_option = input("\nEnter your choice (1/2): ")
-        
-# Second choice //the first option
+
+        # Second choice //the first option
         if station_option == "1":
             investigate_light()
             light_option = input("\nEnter your choice (1/2): ")
-            
+
             # Final choice based on previous options
             if light_option == "1":
                 confrontation()
@@ -56,11 +68,14 @@ def main_game():
                 print("\nYou access the computer logs and find some intriguing data.")
                 # Continue game based on the chosen path
         elif station_option == "2":
-            print("\nYou reach the observation deck and witness breathtaking cosmic phenomena.")
+            print(
+                "\nYou reach the observation deck and witness breathtaking cosmic phenomena."
+            )
             # Continue game based on the chosen path
     else:
         print("\nYou decide to stay in your quarters.")
         # Continue game based on the chosen path
+
 
 if __name__ == "__main__":
     main_game()
