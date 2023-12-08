@@ -16,9 +16,9 @@ def print_slow(text, color=Fore.WHITE):
     print()
 
 def introduction():
-    Name_of_astronaut = str(input(Fore.LIGHTBLACK_EX + "What is your name, Brave astronaut? (Write your name): "))
+    name_of_astronaut = str(input(Fore.LIGHTBLACK_EX + "What is your name, Brave astronaut? (Write your name): "))
     print_slow(
-        f"Welcome, astronaut {Name_of_astronaut}! You are stationed on the research outpost Perseus, orbiting Nexus-9.",
+        f"Welcome, astronaut {name_of_astronaut}! You are stationed on the research outpost Perseus, orbiting Nexus-9.",
         Fore.GREEN
     )
     print_slow(
@@ -50,7 +50,7 @@ def explore_station():
     elif observation_deck_choice == "2":
         explore_observation_deck()
     else:
-        print("Invalid input. Try again.")
+        print(Fore.RED + "Invalid input. Try again.")
 
 def investigate_light():
     print(Fore.BLUE + "\nYou cautiously approach the control room.")
@@ -67,18 +67,18 @@ def investigate_light():
     elif light_option == "2":
         investigate_computer()
     else:
-        print("Invalid input. Try again.")
+        print(Fore.RED + "Invalid input. Try again.")
 
 def investigate_computer():
-    print("\nYou access the computer logs and find recordings from the crew.")
-    print("The recordings reveal that the crew members were behaving strangely.")
-    print("They spoke of seeing visions and hearing mysterious sounds.")
-    print("Determined to find the truth, you decide to investigate further.")
+    print(Fore.BLUE + "\nYou access the computer logs and find recordings from the crew."
+    "The recordings reveal that the crew members were behaving strangely."
+    "They spoke of seeing visions and hearing mysterious sounds."
+    "Determined to find the truth, you decide to investigate further.")
     # Continue the game based on the chosen path
     # You can add more story prompts or outcomes here based on player's choices
 
 def explore_observation_deck():
-    print(
+    print(Fore.BLUE +
         "\nYou reach the observation deck and notice two points of interest:"
     )
     print("1. Check the computer.")
@@ -91,17 +91,20 @@ def explore_observation_deck():
     elif observation_deck_option == "2":
         check_door()
     else:
-        print("Invalid input. Try again.")
+        print(Fore.RED + "Invalid input. Try again.")
 
 def check_door():
-    print("\nYou walk towards the door at the end of the room.")
-    print("As you approach, you hear a familiar sound.")
-    print("It's a distress signal, possibly from a fellow astronaut.")
-    print("What will you do?")
+    print(Fore.BLUE +
+        "\nYou walk towards the door at the end of the room."
+        "As you approach, you hear a familiar sound."
+        "It's a distress signal, possibly from a fellow astronaut."
+        "What will you do?")
     print("1. Investigate the source of the distress signal.")
     print("2. Return to the observation deck.")
+    print("3. Follow the sound.")
+    print("4. Ignore it.")
 
-    door_option = choice("\nEnter your choice (1/2): ")
+    door_option = choice("\nEnter your choice (1/2/3/4): ")
 
     if door_option == "1":
         print("\nYou decide to investigate the source of the distress signal.")
@@ -111,8 +114,42 @@ def check_door():
         print("\nYou choose to return to the observation deck.")
         # Continue the game based on the chosen path
         # You can add more story prompts or outcomes here based on player's choices
+    elif door_option == "3":
+        print("\nYou decide to follow the sound.")
+        follow_sound()
+    elif door_option == "4":
+        print("\nYou choose to ignore the distress signal.")
+        # Continue the game based on the chosen path
+        # You can add more story prompts or outcomes here based on player's choices
     else:
-        print("Invalid input. Try again.")
+        print(Fore.RED + "Invalid input. Try again.")
+
+def follow_sound():
+    print(Fore.CYAN + "\nYou follow the sound, and as you turn a corner, you find yourself in a surreal scene.")
+    print("Your late mother appears before you, singing a familiar lullaby and calling your name.")
+    time.sleep(2)
+    print(Fore.CYAN + "\nWhat will you do?")
+    print("1. Follow your mother.")
+    print("2. Fight the illusion.")
+    
+    follow_sound_option = choice("\nEnter your choice (1/2): ")
+
+    if follow_sound_option == "1":
+        print(Fore.CYAN + "\nYou choose to follow your mother.")
+        # Continue the game based on the chosen path
+        # You can add more story prompts or outcomes here based on player's choices
+    elif follow_sound_option == "2":
+        print(Fore.CYAN + "\nYou choose to fight the illusion.")
+        # Continue the game based on the chosen path
+        # You can add more story prompts or outcomes here based on player's choices
+    else:
+        print(Fore.RED + "Invalid input. Try again.")
+        
+    time.sleep(2)
+    print(Fore.CYAN + "\nYou experience visions and gain an understanding of your own self."
+                      "Unfortunately, now you are trapped in the planet's influence.")
+
+
 
 def confrontation():
     print(Fore.RED + "\nYou feel a sudden surge of memories flooding your mind.")
@@ -145,7 +182,7 @@ def confrontation():
         # Continue the game based on the chosen path
         # You can add more story prompts or outcomes here based on player's choices
     else:
-        print("Invalid input. Try again.")
+        print(Fore.RED + "Invalid input. Try again.")
 
 def valid_value(prompt):
     while True:
@@ -161,8 +198,8 @@ def choice(prompt):
     while True:
         try:
             value = str(input(prompt)).lower()
-            if value not in ['1', '2']:
-                raise InvalidChoiceError("Please enter '1' or '2'.")
+            if value not in ['1', '2', '3', '4']:
+                raise InvalidChoiceError("Please enter '1', '2', '3', or '4'.")
             return value
         except InvalidChoiceError as e:
             print(e)
@@ -176,7 +213,7 @@ def main_game():
     elif explore_station_choice == "no":
         print("\nYou decide to stay in your quarters.")
     else:
-        print("Invalid input. Try again.")
+        print(Fore.RED + "Invalid input. Try again.")
 
 if __name__ == "__main__":
     main_game()
