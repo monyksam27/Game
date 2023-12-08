@@ -104,7 +104,7 @@ def check_door():
     print("3. Follow the sound.")
     print("4. Ignore it.")
 
-    door_option = choice("\nEnter your choice (1/2/3/4): ")
+    door_option = choice_2("\nEnter your choice (1/2/3/4): ")
 
     if door_option == "1":
         print("\nYou decide to investigate the source of the distress signal.")
@@ -195,6 +195,16 @@ def valid_value(prompt):
             print(e)
 
 def choice(prompt):
+    while True:
+        try:
+            value = str(input(prompt)).lower()
+            if value not in ['1', '2']:
+                raise InvalidChoiceError("Please enter '1' or '2'")
+            return value
+        except InvalidChoiceError as e:
+            print(e)
+
+def choice_2(prompt):
     while True:
         try:
             value = str(input(prompt)).lower()
