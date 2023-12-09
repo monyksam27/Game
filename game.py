@@ -33,13 +33,13 @@ def introduction():
     print_slow("\nYou wake up in your quarters. It's eerily silent.", Fore.MAGENTA)
 
 def explore_station():
-    print(Fore.BLUE + "\nYou decide to explore the research outpost.")  
-    print(
+    print_slow("\nYou decide to explore the research outpost.", Fore.BLUE)  
+    print_slow(
         "As you walk down the corridor, you notice a flickering light in the control room.",
-        Fore.WHITE
+        Fore.BLUE
     )
     time.sleep(2)
-    print(Fore.BLUE + "\nWhat do you want to do?")
+    print_slow ("\nWhat do you want to do?", Fore.GREEN)
     print("1. Investigate the flickering light.")
     print("2. Go to the observation deck.")
 
@@ -53,10 +53,10 @@ def explore_station():
         print(Fore.RED + "Invalid input. Try again.")
 
 def investigate_light():
-    print(Fore.BLUE + "\nYou cautiously approach the control room.")
-    print("Inside, you see holographic projections swirling around.")
+    print_slow( "\nYou cautiously approach the control room.", Fore.BLUE)
+    print_slow("Inside, you see holographic projections swirling around.", Fore.BLUE)
     time.sleep(2)
-    print(Fore.BLUE + "\nTwo doors appear in front of you.")
+    print_slow("\nTwo doors appear in front of you.", Fore.GREEN)
     print("1. Approach the holographic projections.")
     print("2. Check the computer logs.")
 
@@ -70,16 +70,17 @@ def investigate_light():
         print(Fore.RED + "Invalid input. Try again.")
 
 def investigate_computer():
-    print(Fore.BLUE + "\nYou access the computer logs and find recordings from the crew."
+    print_slow("\nYou access the computer logs and find recordings from the crew."
     "The recordings reveal that the crew members were behaving strangely."
     "They spoke of seeing visions and hearing mysterious sounds."
-    "Determined to find the truth, you decide to investigate further.")
+    "Determined to find the truth, you decide to investigate further.", Fore.BLUE)
     # Continue the game based on the chosen path
     # You can add more story prompts or outcomes here based on player's choices
 
 def explore_observation_deck():
-    print(Fore.BLUE +
-        "\nYou reach the observation deck and notice two points of interest:"
+    print_slow(
+        "\nYou reach the observation deck and notice two points of interest:",
+        Fore.BLUE
     )
     print("1. Check the computer.")
     print("2. Check the door at the end of the room.")
@@ -94,30 +95,26 @@ def explore_observation_deck():
         print(Fore.RED + "Invalid input. Try again.")
 
 def check_door():
-    print(Fore.BLUE +
+    print_slow(
         "\nYou walk towards the door at the end of the room."
         "As you approach, you hear a familiar sound."
-        "It's a distress signal, possibly from a fellow astronaut."
-        "What will you do?")
-    print("1. Investigate the source of the distress signal.")
-    print("2. Return to the observation deck.")
-    print("3. Follow the sound.")
-    print("4. Ignore it.")
+        "It's a distress signal, possibly from a fellow astronaut.", Fore.BLUE)
+    print_slow("\n What will you do?", Fore.GREEN)
+    print("1. Return to the observation deck.")
+    print("2. Follow the sound.")
+    print("3. Ignore it.")
 
-    door_option = choice_2("\nEnter your choice (1/2/3/4): ")
+    door_option = choice_2("\nEnter your choice (1/2/3): ")
+
 
     if door_option == "1":
-        print("\nYou decide to investigate the source of the distress signal.")
-        # Continue the game based on the chosen path
-        # You can add more story prompts or outcomes here based on player's choices
-    elif door_option == "2":
         print("\nYou choose to return to the observation deck.")
         # Continue the game based on the chosen path
         # You can add more story prompts or outcomes here based on player's choices
-    elif door_option == "3":
+    elif door_option == "2":
         print("\nYou decide to follow the sound.")
         follow_sound()
-    elif door_option == "4":
+    elif door_option == "3":
         print("\nYou choose to ignore the distress signal.")
         # Continue the game based on the chosen path
         # You can add more story prompts or outcomes here based on player's choices
@@ -125,10 +122,10 @@ def check_door():
         print(Fore.RED + "Invalid input. Try again.")
 
 def follow_sound():
-    print(Fore.CYAN + "\nYou follow the sound, and as you turn a corner, you find yourself in a surreal scene.")
-    print("Your late mother appears before you, singing a familiar lullaby and calling your name.")
+    print_slow("\nYou follow the sound, and as you turn a corner, you find yourself in a surreal scene.", Fore.CYAN )
+    print_slow("Your late mother appears before you, singing a familiar lullaby and calling your name.",Fore.CYAN )
     time.sleep(2)
-    print(Fore.CYAN + "\nWhat will you do?")
+    print_slow("\nWhat will you do?", Fore.GREEN)
     print("1. Follow your mother.")
     print("2. Fight the illusion.")
     
@@ -146,16 +143,16 @@ def follow_sound():
         print(Fore.RED + "Invalid input. Try again.")
         
     time.sleep(2)
-    print(Fore.CYAN + "\nYou experience visions and gain an understanding of your own self."
-                      "Unfortunately, now you are trapped in the planet's influence.")
+    print_slow("\nYou experience visions and gain an understanding of your own self."
+                      "Unfortunately, now you are trapped in the planet's influence.", Fore.RED)
 
 
 
 def confrontation():
-    print(Fore.RED + "\nYou feel a sudden surge of memories flooding your mind.")
-    print("Strange illusions begin to form around you.")
+    print_slow("\nYou feel a sudden surge of memories flooding your mind.", Fore.RED)
+    print_slow("Strange illusions begin to form around you.", Fore.RED)
     time.sleep(2)
-    print(Fore.RED + "\nWhat will you do?")
+    print_slow("\nWhat will you do?", Fore.GREEN)
     print("1. Try to confront the illusions.")
     print("2. Attempt to ground yourself and focus on reality.")
 
@@ -164,19 +161,13 @@ def confrontation():
         "What if everything you remember is a fabrication? "
         "Are you sure you can trust your own thoughts?"
     )
-    print_slow(puzzle_text, Fore.WHITE)
+    print_slow(puzzle_text, Fore.RED)
 
     puzzle_choice = choice("\nEnter your choice (1/2): ")
 
     if puzzle_choice == "1":
-        print("\nYou choose to confront the illusions head-on.")
         for _ in range(3):
             print_slow("You find yourself trapped in a time loop of your own imagination...", Fore.YELLOW)
-            time.sleep(2)
-        print_slow("\nBreaking free from the illusions, you are left disoriented but determined to continue.", Fore.WHITE)
-        # Continue the game based on the chosen path
-        # You can add more story prompts or outcomes here based on player's choices
-
     elif puzzle_choice == "2":
         print("\nYou decide to ground yourself and focus on reality.")
         # Continue the game based on the chosen path
@@ -208,8 +199,8 @@ def choice_2(prompt):
     while True:
         try:
             value = str(input(prompt)).lower()
-            if value not in ['1', '2', '3', '4']:
-                raise InvalidChoiceError("Please enter '1', '2', '3', or '4'.")
+            if value not in ['1', '2', '3', ]:
+                raise InvalidChoiceError("Please enter '1', '2', '3' ")
             return value
         except InvalidChoiceError as e:
             print(e)
